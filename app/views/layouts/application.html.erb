@@ -1,4 +1,3 @@
-<!-- The HTML that is common in all view files should be written in application.html.erb -->
 <!DOCTYPE html>
 <html>
   <head>
@@ -6,29 +5,27 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-
+  
   </head>
 
   <body>
-    <!-- Paste the header here -->
     <header>
-      <header>
-         <div class="header-logo">
-           <!-- Rewrite the following link using the link_to method -->
-           <%= link_to("TweetApp","/") %>
-         </div>
-         <ul class="header-menus">
-           <li>
-             <!-- Rewrite the following link using the link_to method -->
-             <%= link_to("About","/about") %>
-           </li>
-           <li>
-             <!-- Add a link to /posts/index using the link_to method -->
-             <%= link_to("Posts","/posts/index") %>
-           </li>
-         </ul>
-       </header>
-    <!-- Each view file will be rendered inside the yield statement below -->
+      <div class="header-logo">
+        <%= link_to("TweetApp", "/") %>
+      </div>
+      <ul class="header-menus">
+        <li>
+          <%= link_to("About", "/about") %>
+        </li>
+        <li>
+          <%= link_to("Posts", "/posts/index") %>
+        </li>
+        <li>
+          <!-- Add a link to /posts/new using the link_to method -->
+          <%= link_to("New post", "/posts/new") %>
+        </li>
+      </ul>
+    </header>
     <%= yield %>
   </body>
 </html>

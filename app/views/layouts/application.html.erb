@@ -1,15 +1,34 @@
+<!-- The HTML that is common in all view files should be written in application.html.erb -->
 <!DOCTYPE html>
 <html>
   <head>
     <title>TweetApp</title>
     <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
+    <!-- Paste the header here -->
+    <header>
+      <header>
+         <div class="header-logo">
+           <!-- Rewrite the following link using the link_to method -->
+           <%= link_to("TweetApp","/") %>
+         </div>
+         <ul class="header-menus">
+           <li>
+             <!-- Rewrite the following link using the link_to method -->
+             <%= link_to("About","/about") %>
+           </li>
+           <li>
+             <!-- Add a link to /posts/index using the link_to method -->
+             <%= link_to("Posts","/posts/index") %>
+           </li>
+         </ul>
+       </header>
+    <!-- Each view file will be rendered inside the yield statement below -->
     <%= yield %>
   </body>
 </html>

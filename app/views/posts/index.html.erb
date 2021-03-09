@@ -1,24 +1,13 @@
-<header>
-  <div class="header-logo">
-    <a href="/">TweetApp</a>
-  </div>
-  <ul class="header-menus">
-    <li>
-      <a href="/about">About</a>
-    </li>
-  </ul>
-</header>
+<!-- Copy the header to application.html.erb, then remove it from this file -->
+<!-- The header starts here -->
 
-<!-- Remove the code below -->
-
-<!-- Remove the code above -->
+<!-- The header ends here -->
 
 <div class="main posts-index">
   <div class="container">
-    <!-- Rewrite posts with @posts -->
     <% @posts.each do |post| %>
       <div class="posts-index-item">
-        <%= post %>
+        <%= post.content %>
       </div>
     <% end %>
   </div>

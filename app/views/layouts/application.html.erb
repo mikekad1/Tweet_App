@@ -9,29 +9,36 @@
   </head>
 
   <body>
-    <header>
-      <div class="header-logo">
-        <%= link_to("TweetApp", "/") %>
-      </div>
-      <ul class="header-menus">
-        <li>
-          <%= link_to("About", "/about") %>
-        </li>
-        <li>
-          <%= link_to("Posts", "/posts/index") %>
-        </li>
-        <li>
-          <%= link_to("New post", "/posts/new") %>
-        </li>
-      </ul>
-    </header>
-    <!-- Paste the HTML here -->
-    <!-- Show the message stored in flash[:notice] -->
-    <% if flash[:notice] %>
-      <div class="flash">
-        <%= flash[:notice] %>
-      </div>
-    <% end %>
-    <%= yield %>
-  </body>
-</html>
+     <header>
+       <div class="header-logo">
+         <%= link_to("TweetApp", "/") %>
+       </div>
+       <ul class="header-menus">
+         <li>
+           <%= link_to("About", "/about") %>
+         </li>
+         <li>
+           <%= link_to("Posts", "/posts/index") %>
+         </li>
+         <li>
+           <%= link_to("New post", "/posts/new") %>
+         </li>
+         <li>
+           <%= link_to("Users", "/users/index") %>
+         </li>
+         <!-- Add a link to the "Sign up" page -->
+         <li>
+           <%= link_to("Sign up", "/signup") %>
+         </li>
+       </ul>
+     </header>
+
+     <% if flash[:notice] %>
+       <div class="flash">
+         <%= flash[:notice] %>
+       </div>
+     <% end %>
+
+     <%= yield %>
+   </body>
+ </html>

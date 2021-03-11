@@ -5,7 +5,7 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
@@ -21,11 +21,17 @@
           <%= link_to("Posts", "/posts/index") %>
         </li>
         <li>
-          <!-- Add a link to /posts/new using the link_to method -->
           <%= link_to("New post", "/posts/new") %>
         </li>
       </ul>
     </header>
+    <!-- Paste the HTML here -->
+    <!-- Show the message stored in flash[:notice] -->
+    <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>

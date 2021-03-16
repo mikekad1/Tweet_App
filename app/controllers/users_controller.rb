@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user, {only: [:index, :show, :edit, :update]}
   before_action :forbid_login_user, {only: [:new, :create, :login_form, :login]}
-  # Set the ensure_correct_user method as a before_action
   before_action :ensure_correct_user, {only: [:edit, :update]}
 
   def index
@@ -59,8 +58,10 @@ class UsersController < ApplicationController
   end
 
   def login
-    @user = User.find_by(email: params[:email], password: params[:password])
-    if @user
+    # Rewrite the following line to only use the email to find the user
+    @user = User.find_by(email: params[:email])
+    # Rewrite the if statement using && and the "authenticate" method
+    if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
       flash[:notice] = "You have logged in successfully"
       redirect_to("/posts/index")
@@ -78,7 +79,11 @@ class UsersController < ApplicationController
     redirect_to("/login")
   end
 
-  # Define the ensure_correct_user method
+  def likes
+    @user = User.find_by(id: params[:id])
+    @likes = Like.where(user_id: @user.id)
+  end
+
   def ensure_correct_user
     if @current_user.id != params[:id].to_i
       flash[:notice] = "Unauthorized access"
